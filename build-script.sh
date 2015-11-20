@@ -27,7 +27,7 @@ CF_API_ENDPOINT="api.run.pivotal.io"
 CF_USER="bradley.ring@gmail.com"
 CF_PASSWORD="Password"
 CF_ORG="OneRing"
-CF_SPACE="onering.workshop1"
+CF_SPACE="development"
 
 #cf --version
  cf login -a https://${CF_API_ENDPOINT} -u ${CF_USER} -p ${CF_PASSWORD} -o ${CF_ORG} -s ${CF_SPACE}
