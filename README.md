@@ -5,6 +5,8 @@
 
 * chrome
 * sublime or other editor
+* Join the hipchat room "ATL - Custom Dev Labs"
+
 
 ## Github
 
@@ -29,11 +31,10 @@ git —version
 git clone <forked repo>
 ````
 
-* cd into directory
-* Create develop branch and set active branch to develop
+* cd into new directory
+* Switch to  develop branch
 	
 ```
-git branch develop
 git checkout develop
 ```
 
@@ -163,7 +164,7 @@ gulp dev
 
 * Create a space using the UI
 
-* Download and install the cli if you don't already have it installed.
+* Click on "Tools" in the Cloud Foundry left nav.  Download and install the cli if you don't already have it installed.
 
 *  Test if the cli installed correctly
 
@@ -179,12 +180,10 @@ cf login -a https://api.run.pivotal.io
  
 * Enter credentials into cli
 
-* Update your manifest file.  Each app has a manifest which describes hwo the app should run.  Each app needs a unique name so open up the manifest.yml file and add your name to the app name property.
-
 * Push app to your space
 
 ```
-cf push
+cf push <yourname>-lab-dev
 ```
 
 * Navigate to <your-org-name>.  You can find the link in your Cloud Foundry dashboard.
