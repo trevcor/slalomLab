@@ -196,7 +196,7 @@ cf push
 
 * Credentials in the chat room.
 
-* Create a new job.  Start the job name with your last name and select freestyle project.
+* Create a new item.  Start the job name with your last name and select freestyle project.
 
 * Scroll down to "Source Code Management" and add your repo to the job.
 
@@ -204,9 +204,15 @@ cf push
 
 * Test the build and make sure you can resolve the repo.
 
+* Now we can add a build step.  We will just use a Shell script step.  We already have a build shell script in our repo.  This will run the gulp ci task as well as our npm tasks.
+
+```
+sh -x -e build-script.sh
+```
+
+* Configure test report outputs.  Scroll down to post build actions and add "Publish Junit test result report".  Enter "report/**/*.xml".  This will pull in all test reports in the workspace.  Run another build and you should have a test result link on your jobs homepage.
 
 
-* Configure test report outputs.
 
 
 
