@@ -21,7 +21,6 @@
         	getProducts();
         }
 
-
         function addProduct() {
             if (vmProduct.newProduct.length > 0) {
                 vmProduct.products.push({
