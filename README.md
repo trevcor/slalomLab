@@ -210,7 +210,14 @@ cf push
 sh -x -e build-script.sh
 ```
 
-* Configure test report outputs.  Scroll down to post build actions and add "Publish Junit test result report".  Enter "report/**/*.xml".  This will pull in all test reports in the workspace.  Run another build and you should have a test result link on your jobs homepage.
+* Configure test report outputs.  Scroll down to post build actions and add "Publish Junit test result report".  Enter 
+
+
+```
+report/**/*.xml
+```
+
+This will pull in all test reports in the workspace.  Run another build and you should have a test result link on your jobs homepage.
 
 
 ### Test Failing
@@ -263,7 +270,8 @@ git push origin develop
 
 * Change "build" to "buildWithParameters"
 
-* Now we can make a change to our app, push up the change and watch the build push it to CF.
+* Now we can make a change to our app, push up the change and watch the build push it to CF.  
+* Open 
 
 
 
