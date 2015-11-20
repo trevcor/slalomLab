@@ -240,9 +240,30 @@ http://52.6.164.105:8080/<jobname>/build?token=<token>
 
 * Click save
 
-* Make a text change to your Readme file, commit, and push it up to test your hook.  You should see the jenkins job start.
+* Make a text change to your Readme file, stage, commit, and push it up to test your hook.  
 
+```
+git add .
+git commit -m "message"
+git push origin develop
+```
 
+* You should see the jenkins job start.
+
+## Automating Deployments
+
+* Open up build.sh in your editor.
+* Update the CF_USER and CF_ORG lines to point to your cf instance.
+* Uncomment the last to lines to enable the deployment.
+* Go back to your jenkins job so we can add your password as an environment variable.
+*  Near the top of the configuration select "This build is parameterized" and add a password param.
+* Name it "CF_PASSWORD" to match our script and save your changes.
+
+* One more tiny change to make.  Since we added a parameter to our build the api endpoint changes so we need to update our hook in github.
+
+* Change "build" to "buildWithParameters"
+
+* Now we can make a change to our app, push up the change and watch the build push it to CF.
 
 
 
