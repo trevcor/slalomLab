@@ -26,7 +26,11 @@ rm -r node_modules
 CF_API_ENDPOINT="api.run.pivotal.io"
 CF_USER="trevorc@slalom.com"
 CF_ORG="Trevor test org"
-CF_SPACE="development"
+if [ $CF_SPACE ]; then
+	CF_SPACE=$CF_SPACE
+else
+	CF_SPACE="development"
+fi
 
 
 #cf login -a https://${CF_API_ENDPOINT} -u ${CF_USER} -p ${CF_PASSWORD} -o "${CF_ORG}" -s "${CF_SPACE}" --skip-ssl-validation

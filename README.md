@@ -263,18 +263,45 @@ git push origin develop
 * Update the CF_USER and CF_ORG lines to point to your cf instance.
 * Uncomment the last to lines to enable the deployment.
 * Go back to your jenkins job so we can add your password as an environment variable.
-*  Near the top of the configuration select "This build is parameterized" and add a password param.
-* Name it "CF_PASSWORD" to match our script and save your changes.
+*  Near the top of the configuration page select "This build is parameterized" and add a password param.
+* Name it "CF_PASSWORD" to match our build script.  Enter your Cloud Foundry password as the value and save your changes.
 
 * One more tiny change to make.  Since we added a parameter to our build the api endpoint changes so we need to update our hook in github.
 
 * Change "build" to "buildWithParameters"
 
 * Now we can make a change to our app, push up the change and watch the build push it to CF.  
-* Open 
+* Open up app/layout/layout.css and change the nav backgorund color.
+* Commit the change, watch the build and see the change in your cloud app instance.
 
 
+## 7. Mapping Deployment Environments
 
+* Navigate to your Orgs page and click "Add a new Space"
+* Call it production
+
+* Go back to jenkins and let's create a new job.  Name it the same as your previous job but add "-production" to the end.
+* Instead of a freestyle project this time select "Copy Existing Item" and type in your previous job name.  This will copy that job's config to your new job.
+
+* Go to your new job's configuration and change the branch to "master"
+* Then we need to add a new string parameter to this build to tell our scrip to push to the production space.
+* Scroll near the top, add parameter, string parameter.  Name it CF_SPACE and add the value "production"
+
+* Now we need to add a new hook in Github to call this new job.  Once you add that we can move on to our pull request.
+
+## 8.  Triggering Deployments via Pull Request
+
+* Go to back to github to your main repo page.
+
+* Click on the tiny little Pull Request button above the list of files.
+
+* Set the base fork to your Master branch
+
+* Set the compare to your develop branch.
+
+* Submit the pull request and click on the merge approval buttons
+
+* This should trigger a production build on jenkins.  Once it is complete navigate to your prod space in Cloud Foundry to see the running app.
 
 
 
