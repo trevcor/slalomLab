@@ -25,6 +25,7 @@ rm -r node_modules
 
 CF_API_ENDPOINT="api.run.pivotal.io"
 CF_USER="bradley.ring@gmail.com"
+CF_PASSWORD="Password"
 CF_ORG="OneRing"
 CF_SPACE="onering.workshop1"
 
