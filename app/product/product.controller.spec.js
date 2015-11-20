@@ -33,4 +33,8 @@ describe('Product Controller unit tests: ', function() {
 		vmProduct.addProduct();
 	});
 
+	it('should fail before you update this test', function() {
+		expect(true).toBe(true);
+	});
+
 });

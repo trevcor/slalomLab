@@ -8,7 +8,6 @@
     function productCtrl(dataservice) {
         /*jshint validthis: true */
         var vmProduct = this;
-
         vmProduct.addProduct = addProduct;
 
         activate();
@@ -20,7 +19,6 @@
 
         	getProducts();
         }
-
 
         function addProduct() {
             if (vmProduct.newProduct.length > 0) {
