@@ -213,9 +213,34 @@ sh -x -e build-script.sh
 * Configure test report outputs.  Scroll down to post build actions and add "Publish Junit test result report".  Enter "report/**/*.xml".  This will pull in all test reports in the workspace.  Run another build and you should have a test result link on your jobs homepage.
 
 
+### Test Failing
+
+* Open /app/product/product.controller.spec.js in your editor.
+* Change line #36 to run the broken test (remove the "x")
+* Run the unit test locally and look at the output
+* Commit the broken test and run another jenkins build and notice the FAIL.
+
+## 5. Triggering the Build
+
+### Configure GitHub hooks
+
+* Go back to your Jenkins job config
+* Select "Trigger builds remotely"
+* Add a simple token ("1234")
 
 
 
+* Now go back to your GitHub repo in the browser.
+* On the right side click "Settings"
+* Then click "Webhooks and Services"
+
+```
+http://52.6.164.105:8080/<jobname>/build?token=<token>
+```
+
+* Click save
+
+* Make a text change to your Readme file, commit, and push it up to test your hook.  You should see the jenkins job start.
 
 
 
